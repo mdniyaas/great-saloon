@@ -1,0 +1,187 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* ================= HEADER ================= */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.6);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ================= NAVBAR ================= */
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    position: relative;
+}
+
+/* LOGO */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* NAV LINKS */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 0.95rem;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* UNDERLINE ANIMATION */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: #d4af37;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+    color: #fff;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(45deg, #d4af37, #b8962e);
+    color: black !important;
+    padding: 0.5rem 1.3rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #d4af37;
+}
+
+/* ================= HERO ================= */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url('background.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 9rem 2rem;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #fff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: #ccc;
+    margin: 1rem 0 2rem;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 2rem;
+}
+
+/* ================= SERVICES ================= */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(212,175,55,0.2);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+
+    /* SLIDE IN */
+    nav ul.active {
+        left: 0;
+    }
+
+    nav ul li {
+        text-align: center;
+    }
+
+    .hero {
+        padding: 6rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+}

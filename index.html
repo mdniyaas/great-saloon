@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Modern Saloon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* ✨ GLASS NAVBAR (UNCHANGED) */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(15, 15, 15, 0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+header.shrink {
+    padding: 5px 0;
+    background: rgba(0,0,0,0.8);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+}
+
+header.shrink nav {
+    padding: 0.5rem 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+nav a {
+    position: relative;
+    color: #ccc;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #d4af37;
+    border-radius: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+}
+
+nav a:hover {
+    color: black;
+}
+
+nav a.active {
+    background: #d4af37;
+    color: black;
+}
+
+.btn {
+    background: linear-gradient(45deg, #d4af37, #b8962e);
+    color: black !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+}
+
+/* HERO */
+.hero {
+    margin-top: 80px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+                url('background.jpg') center/cover no-repeat;
+    text-align: center;
+    padding: 9rem 2rem;
+}
+.hero a { text-decoration: none; }
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 3rem 2rem;
+}
+
+/* SERVICES */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(212,175,55,0.2);
+}
+
+/* WHY US */
+.why {
+    text-align: center;
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* EXPERIENCE */
+.glow-title {
+    text-align: center;
+    color: #d4af37;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+}
+
+.experience {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.exp-box {
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.exp-box:hover {
+    box-shadow: 0 0 20px #d4af37;
+}
+
+/* REVIEW SLIDER */
+.slider {
+    overflow: hidden;
+    max-width: 600px;
+    margin: auto;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    background: #1a1a1a;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #d4af37;
+    font-size: 1.5rem;
+}
+
+/* MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #d4af37;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle { display: block; }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s;
+    }
+
+    nav ul.active { left: 0; }
+
+    .experience {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<nav>
+    <div class="logo">✨ Modern Saloon</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="SignIn.html" class="btn">Sign In</a></li>
+    </ul>
+</nav>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Modern Saloon</h1>
+    <p>Premium Hair & Beauty Services</p>
+    <a href="service.html" class="btn">Explore Services</a>
+</section>
+
+<!-- SERVICES -->
+<div class="container">
+<h2>Our Services</h2>
+
+<div class="services">
+<div class="service-card">
+<img src="hairstyling.jfif">
+<h3>Hair Styling</h3>
+<p>Professional cuts, colors, and treatments</p>
+</div>
+
+<div class="service-card">
+<img src="image2.jpg" style="height: 420px;">
+<h3>Beauty Treatments</h3>
+<p>Facials, makeup, and skincare services</p>
+</div>
+
+<div class="service-card">
+<img src="manicure.jfif" style="height: 420px;">
+<h3>Nail Care</h3>
+<p>Manicure and pedicure services</p>
+</div>
+</div>
+</div>
+
+<!-- WHY US -->
+<div class="container why">
+<h2>Why Choose Us?</h2>
+<p>We provide premium grooming with expert professionals and high-quality products to give you the best experience.</p>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="container">
+<h2 class="glow-title">Our Experience</h2>
+<div class="experience">
+<div class="exp-box"><h3>10+</h3><p>Years</p></div>
+<div class="exp-box"><h3>5000+</h3><p>Clients</p></div>
+<div class="exp-box"><h3>20+</h3><p>Experts</p></div>
+</div>
+</div>
+
+<!-- REVIEWS -->
+<div class="container">
+<h2>Customer Reviews</h2>
+<div class="slider">
+<div class="slides" id="slides">
+
+<div class="slide">
+<p>"Excellent service and friendly staff!"</p>
+<h4>- Arjun</h4>
+</div>
+
+<div class="slide">
+<p>"Very professional and clean salon."</p>
+<h4>- Rahul</h4>
+</div>
+
+<div class="slide">
+<p>"Best grooming experience ever."</p>
+<h4>- Karthik</h4>
+</div>
+
+</div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<h3 style="color:#d4af37;">Modern Saloon</h3>
+
+<div class="social-icons">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+</div>
+
+<p>&copy; 2024 Modern Saloon. All rights reserved.</p>
+</footer>
+
+<script>
+// MENU
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// HEADER SCROLL
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
+});
+
+// REVIEW SLIDER
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+
+setInterval(() => {
+    index = (index + 1) % total;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+}, 3000);
+</script>
+
+</body>
+</html>

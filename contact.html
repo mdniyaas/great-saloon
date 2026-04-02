@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Contact - Modern Saloon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* ✨ UPDATED HEADER (FROM INDEX) */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(15, 15, 15, 0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+header.shrink {
+    background: rgba(0,0,0,0.85);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+}
+
+header.shrink nav {
+    padding: 0.5rem 2rem;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* NAV LINKS */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+/* ✨ HOVER BOX EFFECT */
+nav a {
+    position: relative;
+    color: #ccc;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #d4af37;
+    border-radius: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+}
+
+nav a:hover {
+    color: black;
+}
+
+/* ACTIVE PAGE */
+nav a.active {
+    background: #d4af37;
+    color: black;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(45deg, #d4af37, #b8962e);
+    color: black !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+}
+
+/* MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #d4af37;
+}
+
+/* CONTACT */
+.container {
+    max-width: 1000px;
+    margin: 120px auto 40px; /* space for fixed header */
+    padding: 40px 20px;
+}
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.info-block {
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.info-block h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    background: #d4af37;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* MAP */
+.map-container {
+    margin-top: 30px;
+}
+
+.map-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.map-buttons a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background: #d4af37;
+    color: black;
+    border-radius: 20px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.map-buttons a:hover {
+    background: #fff;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    margin-top: 40px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<nav>
+    <div class="logo">✨ Modern Saloon</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="SignIn.html" class="btn">Sign In</a></li>
+    </ul>
+</nav>
+</header>
+
+<!-- KEEP YOUR ORIGINAL CONTENT SAME -->
+<div class="container">
+    <h1>Contact Us</h1>
+
+    <div class="contact-section">
+        <div class="info-block">
+            <h2>Get In Touch</h2>
+            <p><strong>Address:</strong><br>Velachery, Chennai</p>
+            <p><strong>Phone:</strong><br>+91 98765 43210</p>
+            <p><strong>Email:</strong><br>info@modernsaloon.com</p>
+        </div>
+
+        <div class="info-block">
+            <h2>Send Message</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <h2 style="margin-top:40px;">Our Location</h2>
+
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps?q=Velachery,Chennai&output=embed"
+            width="100%" 
+            height="350" 
+            style="border:0; border-radius:10px;" 
+            loading="lazy">
+        </iframe>
+
+        <div class="map-buttons">
+            <a href="https://www.google.com/maps?q=Velachery,Chennai" target="_blank">📍 Open in Maps</a>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Velachery,Chennai" target="_blank">🚗 Get Directions</a>
+            <a href="tel:+919876543210">📞 Call Now</a>
+            <a href="mailto:info@modernsaloon.com">✉️ Email Us</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+
+<h3 style="color:#d4af37;">Modern Saloon</h3>
+
+<div class="social-icons">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+</div>
+
+    <p>&copy; 2024 Modern Saloon. All rights reserved.</p>
+</footer>
+
+<script>
+// MOBILE MENU
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// SHRINK HEADER
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
+});
+</script>
+
+</body>
+</html>

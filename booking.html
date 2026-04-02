@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Book Appointment - Modern Saloon</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+/* FOOTER */
+footer {
+    background: #000;
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #d4af37;
+    font-size: 1.5rem;
+}
+
+
+
+/* ✨ GLASS NAVBAR */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(15, 15, 15, 0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+/* SHRINK */
+header.shrink {
+    background: rgba(0,0,0,0.8);
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    transition: 0.3s;
+}
+
+header.shrink nav {
+    padding: 0.5rem 2rem;
+}
+
+/* LOGO */
+.logo {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 28px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(37,211,102,0.6);
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(37,211,102,1);
+}
+
+/* NAV LINKS */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+/* ✨ HOVER BOX */
+nav a {
+    position: relative;
+    color: #ccc;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 1;
+    transition: color 0.3s;
+}
+
+nav a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #d4af37;
+    border-radius: 6px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+nav a:hover::before {
+    transform: scaleX(1);
+}
+
+nav a:hover {
+    color: black;
+}
+
+/* ✨ ACTIVE PAGE */
+nav a.active {
+    background: #d4af37;
+    color: black;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(45deg, #d4af37, #b8962e);
+    color: black !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+}
+
+/* MOBILE MENU */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #d4af37;
+}
+
+/* BOOKING FORM */
+.container {
+    max-width: 700px;
+    margin: 120px auto 60px; /* space for fixed header */
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.header-text {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header-text h1 {
+    color: #d4af37;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* PRICE DISPLAY */
+.price-box {
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    color: #d4af37;
+    font-weight: bold;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #d4af37, #b8962e);
+    color: black;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* SUCCESS */
+.success {
+    display: none;
+    background: green;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        position: absolute;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        background: #111;
+        flex-direction: column;
+        padding: 2rem;
+        transition: 0.3s;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="header">
+<nav>
+    <div class="logo">✨ Modern Saloon</div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="booking.html" class="active">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="SignIn.html" class="btn">Sign In</a></li>
+    </ul>
+</nav>
+</header>
+
+<div class="container">
+    <div class="header-text">
+        <h1>Book Appointment</h1>
+        <p>Select your service & time</p>
+    </div>
+
+    <div class="price-box" id="priceBox">Select a service to see price</div>
+
+    <form id="bookingForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone" required>
+
+        <div class="form-row">
+            <select id="service" required>
+                <option value="">Select Service</option>
+                <option value="200">Haircut - ₹200</option>
+                <option value="800">Hair Coloring - ₹800</option>
+                <option value="500">Facial - ₹500</option>
+                <option value="1000">Massage - ₹1000</option>
+            </select>
+
+            <select>
+                <option>Any Stylist</option>
+                <option>John</option>
+                <option>Emma</option>
+                <option>Sophia</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <input type="date" id="date" required>
+            <input type="time" required>
+        </div>
+
+        <textarea placeholder="Notes"></textarea>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div class="success" id="successMsg">
+        ✅ Appointment Booked Successfully!
+    </div>
+</div>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/919876543210?text=Hello%20I%20want%20to%20book%20an%20appointment%20at%20Modern%20Saloon"
+   class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- FOOTER -->
+<footer>
+<h3 style="color:#d4af37;">Modern Saloon</h3>
+
+<div class="social-icons">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+</div>
+
+<p>&copy; 2024 Modern Saloon. All rights reserved.</p>
+</footer>
+
+
+<script>
+// MOBILE MENU
+const toggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+
+// SHRINK HEADER
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        header.classList.add("shrink");
+    } else {
+        header.classList.remove("shrink");
+    }
+});
+
+// PRICE UPDATE
+const service = document.getElementById("service");
+const priceBox = document.getElementById("priceBox");
+
+service.addEventListener("change", () => {
+    if(service.value){
+        priceBox.innerText = "Total Price: ₹" + service.value;
+    } else {
+        priceBox.innerText = "Select a service to see price";
+    }
+});
+
+// DATE LIMIT
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("date").setAttribute("min", today);
+
+// FORM SUCCESS
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    document.getElementById("successMsg").style.display = "block";
+});
+</script>
+
+</body>
+</html>
