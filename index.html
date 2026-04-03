@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <!-- Font Awesome for icons -->
@@ -131,8 +131,10 @@ nav a.active {
     background: linear-gradient(45deg, #fff, #d4af37);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}.btn i {
+    font-size: 12px;   /* reduce size */
+    margin-left: 6px;  /* space between text and icon */
 }
-
 .hero p {
     color: #ccc;
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
@@ -145,7 +147,10 @@ nav a.active {
     margin: auto;
     padding: 4rem 2rem;
 }
-
+.explore-btn-container .btn a{
+text-decoration:none;
+    
+}
 /* SERVICES TITLE BAR */
 .services-title-bar {
     text-align: center;
@@ -745,7 +750,9 @@ footer {
 <section class="hero">
     <h1>Welcome to Modern Saloon</h1>
     <p>Premium Hair & Beauty Services</p>
-    <a href="service.html" class="btn">Explore Services</a>
+    <a href="service.html" class="btn">
+        Explore Services <i class="fa fa-arrow-right"></i>
+    </a>
 </section>
 
 <!-- SERVICES -->
@@ -775,7 +782,7 @@ footer {
 </div>
 
 <div class="explore-btn-container">
-    <a href="service.html" class="btn">Explore All Services</a>
+    <a href="service.html" class="btn" >Explore All Services</a>
 </div>
 </div>
 
