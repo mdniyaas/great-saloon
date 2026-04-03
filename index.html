@@ -1,205 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- ONLY THIS SECTION IS UPDATED - REST OF YOUR CODE REMAINS SAME -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<title>Modern Saloon</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-    font-family:'Poppins',sans-serif;
-    background:#0f0f0f;
-    color:#fff;
-}
-
-/* HEADER */
-header{
-    position:fixed;width:100%;top:0;z-index:1000;
-    backdrop-filter:blur(20px);
-    background:rgba(15,15,15,0.9);
-}
-nav{
-    max-width:1400px;margin:auto;
-    display:flex;justify-content:space-between;
-    align-items:center;padding:1rem 2rem;
-}
-.logo{color:#d4af37;font-size:1.5rem;font-weight:600;}
-nav ul{display:flex;gap:1.5rem;list-style:none;}
-nav a{color:#ccc;text-decoration:none;}
-.btn{
-    background:#d4af37;color:#000;
-    padding:10px 18px;border-radius:25px;
-}
-
-/* HERO (reduced size) */
-.hero{
-    margin-top:70px;
-    text-align:center;
-    padding:7rem 2rem 5rem; /* reduced */
-    background:#111;
-}
-.hero h1{font-size:3rem;margin-bottom:1rem;}
-.hero p{color:#ccc;margin-bottom:2rem;}
-
-.btn i{
-    font-size:12px;
-    margin-left:6px;
-}
-
-/* CONTAINER (reduced) */
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:3rem 1.5rem;
-}
-
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:2rem;
-}
-.service-card{
-    background:#1a1a1a;
-    padding:2rem 1.5rem; /* reduced */
-    border-radius:15px;
-    text-align:center;
-}
-.service-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:10px;
-}
-
-/* SECTION SPACING REDUCED */
-.team-section,
-.gallery-section,
-.reviews-section{
-    padding:4rem 0;
-}
-
-/* BEFORE AFTER */
-.before-after-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:2rem;
-}
-.ba-item{
-    position:relative;
-    height:300px;
-    overflow:hidden;
-    border-radius:15px;
-}
-.ba-image{
-    position:absolute;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-.ba-slider{
-    position:absolute;
-    left:50%;
-    width:4px;
-    height:100%;
-    background:#d4af37;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:2rem;
-    background:#000;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<nav>
-<div class="logo">Modern Saloon</div>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#">Services</a></li>
-<li><a href="#">Contact</a></li>
-</ul>
-</nav>
-</header>
-
-<section class="hero">
-<h1>Welcome to Modern Saloon</h1>
-<p>Premium Hair & Beauty Services</p>
-<a href="#" class="btn">
-Explore Services <i class="fa fa-arrow-right"></i>
-</a>
-</section>
-
-<div class="container">
-
-<h2 style="text-align:center;color:#d4af37;margin-bottom:2rem;">Our Services</h2>
-
-<div class="services">
-<div class="service-card">
-<img src="hairstyling.jfif">
-<h3>Hair Styling</h3>
-</div>
-
-<div class="service-card">
-<img src="image2.jpg">
-<h3>Beauty</h3>
-</div>
-
-<div class="service-card">
-<img src="manicure.jfif">
-<h3>Nails</h3>
-</div>
-</div>
-
-</div>
-
-<!-- BEFORE AFTER SECTION -->
+<!-- BEFORE AFTER GALLERY -->
 <section class="gallery-section">
 <div class="container">
-
-<h2 style="text-align:center;color:#d4af37;margin-bottom:2rem;">Before & After</h2>
+<h2 class="glow-title">Before & After Transformations</h2>
 
 <div class="before-after-container">
 
-<!-- IMAGE 1 -->
 <div class="ba-item">
-<img src="beforeandafter.jpg" class="ba-image" style="clip-path: inset(0 50% 0 0);">
-<img src="beforeandafter1.jpg" class="ba-image">
+<img src="beforeandafter.jpg" class="ba-image" style="clip-path: inset(0 50% 0 0);" alt="Before">
+<img src="beforeandafter1.jpg" class="ba-image" alt="After">
 <div class="ba-slider"></div>
+<div class="ba-labels">
+    <div class="ba-label">BEFORE</div>
+    <div class="ba-label">AFTER</div>
+</div>
 </div>
 
-<!-- IMAGE 2 -->
 <div class="ba-item">
-<img src="beforeandafter2.jfif" class="ba-image" style="clip-path: inset(0 50% 0 0);">
-<img src="beforeandafter.jpg" class="ba-image">
+<img src="beforeandafter2.jfif" class="ba-image" style="clip-path: inset(0 50% 0 0);" alt="Before">
+<img src="beforeandafter.jpg" class="ba-image" alt="After">
 <div class="ba-slider"></div>
+<div class="ba-labels">
+    <div class="ba-label">BEFORE</div>
+    <div class="ba-label">AFTER</div>
+</div>
 </div>
 
-<!-- IMAGE 3 -->
 <div class="ba-item">
-<img src="beforeandafter1.jpg" class="ba-image" style="clip-path: inset(0 50% 0 0);">
-<img src="beforeandafter2.jfif" class="ba-image">
+<img src="beforeandafter1.jpg" class="ba-image" style="clip-path: inset(0 50% 0 0);" alt="Before">
+<img src="beforeandafter2.jfif" class="ba-image" alt="After">
 <div class="ba-slider"></div>
+<div class="ba-labels">
+    <div class="ba-label">BEFORE</div>
+    <div class="ba-label">AFTER</div>
+</div>
 </div>
 
 </div>
-
 </div>
 </section>
-
-<footer>
-<p>© 2026 Modern Saloon</p>
-</footer>
-
-</body>
-</html>
