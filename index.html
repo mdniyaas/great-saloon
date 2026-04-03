@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-//fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <!-- Font Awesome for icons -->
-//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <title>Modern Saloon</title>
 
@@ -25,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ✨ ENHANCED GLASS NAVBAR */
+/* ✨ ENHANCED GLASS NAVBAR - NO ARROW */
 header {
     position: fixed;
     width: 100%;
@@ -429,7 +429,7 @@ nav a.active {
     transform: translateY(-3px);
 }
 
-/* BEFORE AFTER GALLERY */
+/* BEFORE AFTER GALLERY - FIXED FOR MOBILE */
 .gallery-section {
     background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
     padding: 5rem 0;
@@ -491,7 +491,7 @@ nav a.active {
     font-size: 0.9rem;
 }
 
-/* PROFESSIONAL REVIEWS - WHITE TEXT */
+/* PROFESSIONAL REVIEWS - WHITE TEXT WITH STAR COUNT */
 .reviews-section {
     background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
     padding: 5rem 0;
@@ -539,6 +539,13 @@ nav a.active {
     margin-bottom: 1rem;
 }
 
+.review-rating {
+    color: #d4af37;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
 .review-card p {
     font-style: italic;
     font-size: 1.2rem;
@@ -552,21 +559,21 @@ nav a.active {
     font-weight: 600;
 }
 
-/* QUICK BOOK FLOATING BUTTON */
+/* QUICK BOOK FLOATING BUTTON - FIXED & WHITE ICON */
 .floating-book {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     background: linear-gradient(45deg, #d4af37, #b8962e);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: black;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+    font-size: 1.8rem;
+    color: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
     cursor: pointer;
     z-index: 10000;
     transition: all 0.3s ease;
@@ -576,7 +583,7 @@ nav a.active {
 
 .floating-book:hover {
     transform: scale(1.1) rotate(10deg);
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.8);
 }
 
 /* FOOTER */
@@ -597,6 +604,7 @@ footer {
     color: #d4af37;
     font-size: 1.8rem;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .social-icons a:hover {
@@ -673,6 +681,7 @@ footer {
         flex: 0 0 80%;
     }
 
+    /* FIXED GALLERY FOR MOBILE */
     .before-after-container {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -683,11 +692,11 @@ footer {
     }
 
     .floating-book {
-        bottom: 20px;
-        right: 20px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.3rem;
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        font-size: 1.6rem;
     }
 }
 
@@ -707,6 +716,10 @@ footer {
     .team-card {
         flex: 0 0 90%;
     }
+
+    .ba-item {
+        height: 250px;
+    }
 }
 </style>
 </head>
@@ -719,12 +732,12 @@ footer {
     <div class="menu-toggle" id="menu-toggle">☰</div>
 
     <ul id="nav-links">
-        ><a href="index.html" class="active">Home</a></li>
-        ><a href="service.html">Services</a></li>
-        ><a href="about.html">About</a></li>
-        ><a href="booking.html">Book Appointment</a></li>
-        ><a href="contact.html">Contact</a></li>
-        ><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="service.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="booking.html">Book Appointment</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
     </ul>
 </nav>
 </header>
@@ -896,6 +909,7 @@ footer {
 <i class="fas fa-star"></i>
 <i class="fas fa-star"></i>
 </div>
+<div class="review-rating">5.0 (127 Reviews)</div>
 <p>"Exceptional service from start to finish. The stylists are true artists who listen to your needs and deliver outstanding results."</p>
 <h4>- Arjun S.</h4>
 </div>
@@ -908,6 +922,7 @@ footer {
 <i class="fas fa-star"></i>
 <i class="fas fa-star"></i>
 </div>
+<div class="review-rating">5.0 (89 Reviews)</div>
 <p>"Professional, clean, and incredibly relaxing. My hair has never looked better. Highly recommend their treatments!"</p>
 <h4>- Rahul M.</h4>
 </div>
@@ -920,6 +935,7 @@ footer {
 <i class="fas fa-star"></i>
 <i class="fas fa-star"></i>
 </div>
+<div class="review-rating">5.0 (156 Reviews)</div>
 <p>"Best grooming experience I've ever had. The attention to detail and quality of service is unmatched."</p>
 <h4>- Karthik R.</h4>
 </div>
@@ -939,9 +955,15 @@ footer {
 <h3 style="color:#d4af37; margin-bottom: 1rem;">Modern Saloon</h3>
 
 <div class="social-icons">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-facebook"></i></a>
-<a href="#"><i class="fab fa-whatsapp"></i></a>
+<a href="https://instagram.com/modernsaloon" target="_blank" title="Instagram">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://facebook.com/modernsaloon" target="_blank" title="Facebook">
+<i class="fab fa-facebook-f"></i>
+</a>
+<a href="https://wa.me/919876543210" target="_blank" title="WhatsApp">
+<i class="fab fa-whatsapp"></i>
+</a>
 </div>
 
 <p>© 2026 Modern Saloon. All rights reserved.</p>
