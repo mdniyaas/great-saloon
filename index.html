@@ -22,6 +22,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #0f0f0f;
     color: #fff;
+    overflow-x: hidden;
 }
 
 /* ✨ GLASS NAVBAR (UNCHANGED) */
@@ -118,11 +119,15 @@ nav a.active {
                 url('background.jpg') center/cover no-repeat;
     text-align: center;
     padding: 9rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .hero a { text-decoration: none; }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
     background: linear-gradient(45deg, #fff, #d4af37);
     -webkit-background-clip: text;
@@ -131,40 +136,137 @@ nav a.active {
 
 .hero p {
     color: #ccc;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
     margin-bottom: 2rem;
 }
 
 /* CONTAINER */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
 }
 
-/* SERVICES */
+/* RESPONSIVE SERVICES SECTION */
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
 }
 
 .service-card {
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 15px;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
     text-align: center;
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+    transition: 0.6s;
+}
+
+.service-card:hover::before {
+    left: 100%;
 }
 
 .service-card img {
     width: 100%;
-    border-radius: 10px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover img {
+    transform: scale(1.05);
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service-card p {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+/* PERFESSIONAL REVIEWS */
+.reviews-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.reviews-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.review-slider {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.review-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.review-card {
+    min-width: 100%;
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(20px);
+    padding: 3rem 2.5rem;
+    border-radius: 25px;
+    text-align: center;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.review-card .stars {
+    color: #d4af37;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(212,175,55,0.2);
+.review-card p {
+    font-style: italic;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+}
+
+.review-card h4 {
+    color: #d4af37;
+    font-weight: 600;
 }
 
 /* WHY US */
@@ -172,68 +274,107 @@ nav a.active {
     text-align: center;
     color: #ccc;
     line-height: 1.7;
+    background: rgba(26, 26, 26, 0.5);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.1);
 }
 
 /* EXPERIENCE */
 .glow-title {
     text-align: center;
     color: #d4af37;
-    margin-bottom: 2rem;
-    text-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37;
+    margin-bottom: 3rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-shadow: 0 0 20px #d4af37, 0 0 40px #d4af37;
+    position: relative;
+}
+
+.glow-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(45deg, #d4af37, #f5e6c8);
+    border-radius: 2px;
 }
 
 .experience {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .exp-box {
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 10px;
-    transition: 0.3s;
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, transparent);
+}
+
+.exp-box h3 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #d4af37;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px #d4af37;
+}
+
+.exp-box p {
+    color: #ccc;
+    font-size: 1.1rem;
 }
 
 .exp-box:hover {
-    box-shadow: 0 0 20px #d4af37;
-}
-
-/* REVIEW SLIDER */
-.slider {
-    overflow: hidden;
-    max-width: 600px;
-    margin: auto;
-}
-
-.slides {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slide {
-    min-width: 100%;
-    background: #1a1a1a;
-    padding: 2rem;
-    border-radius: 10px;
-    text-align: center;
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(212, 175, 55, 0.3);
 }
 
 /* FOOTER */
 footer {
     background: #000;
     text-align: center;
-    padding: 2rem;
+    padding: 3rem 2rem;
     color: #888;
+    position: relative;
+}
+
+.social-icons {
+    margin: 2rem 0;
 }
 
 .social-icons a {
-    margin: 0 10px;
+    margin: 0 15px;
     color: #d4af37;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    transition: all 0.3s ease;
 }
 
-/* MOBILE */
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.2);
+    color: #f5e6c8;
+}
+
+/* MOBILE RESPONSIVE */
 .menu-toggle {
     display: none;
     font-size: 1.8rem;
@@ -245,21 +386,57 @@ footer {
     .menu-toggle { display: block; }
 
     nav ul {
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 0;
         left: -100%;
         width: 100%;
-        background: #111;
+        height: 100vh;
+        background: rgba(15, 15, 15, 0.98);
+        backdrop-filter: blur(20px);
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
         padding: 2rem;
-        transition: 0.3s;
+        transition: 0.4s;
+        z-index: 1000;
     }
 
-    nav ul.active { left: 0; }
+    nav ul.active { 
+        left: 0; 
+    }
 
-    .experience {
-        flex-direction: column;
-        gap: 1rem;
+    .services {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .service-card img {
+        height: 200px;
+    }
+
+    .hero {
+        padding: 6rem 1rem 4rem;
+        min-height: 100vh;
+    }
+
+    .container {
+        padding: 3rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-card img {
+        height: 180px;
+    }
+    
+    .review-card {
+        padding: 2rem 1.5rem;
     }
 }
 </style>
@@ -279,7 +456,6 @@ footer {
         <li><a href="booking.html">Book Appointment</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="SignIn.html" class="btn">Sign In</a></li>
     </ul>
 </nav>
 </header>
@@ -292,84 +468,117 @@ footer {
 
 <!-- SERVICES -->
 <div class="container">
-<h2>Our Services</h2>
+<h2 style="text-align: center; font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 1rem; color: #d4af37;">Our Services</h2>
 
 <div class="services">
 <div class="service-card">
-<img src="hairstyling.jfif">
+<img src="hairstyling.jfif" alt="Hair Styling">
 <h3>Hair Styling</h3>
-<p>Professional cuts, colors, and treatments</p>
+<p>Professional cuts, colors, and treatments for all hair types with premium products.</p>
 </div>
 
 <div class="service-card">
-<img src="image2.jpg" style="height: 420px;">
+<img src="image2.jpg" alt="Beauty Treatments">
 <h3>Beauty Treatments</h3>
-<p>Facials, makeup, and skincare services</p>
+<p>Advanced facials, makeup artistry, and personalized skincare solutions.</p>
 </div>
 
 <div class="service-card">
-<img src="manicure.jfif" style="height: 420px;">
+<img src="manicure.jfif" alt="Nail Care">
 <h3>Nail Care</h3>
-<p>Manicure and pedicure services</p>
+<p>Expert manicure and pedicure services with long-lasting gel polish options.</p>
 </div>
 </div>
 </div>
 
 <!-- WHY US -->
 <div class="container why">
-<h2>Why Choose Us?</h2>
-<p>We provide premium grooming with expert professionals and high-quality products to give you the best experience.</p>
+<h2 style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 2rem; color: #d4af37;">Why Choose Us?</h2>
+<p>We provide premium grooming with expert professionals and high-quality products. Our salon combines modern techniques with personalized care to deliver exceptional results every visit.</p>
 </div>
 
 <!-- EXPERIENCE -->
 <div class="container">
 <h2 class="glow-title">Our Experience</h2>
 <div class="experience">
-<div class="exp-box"><h3>10+</h3><p>Years</p></div>
-<div class="exp-box"><h3>5000+</h3><p>Clients</p></div>
-<div class="exp-box"><h3>20+</h3><p>Experts</p></div>
+<div class="exp-box">
+<h3>10+</h3>
+<p>Years</p>
+</div>
+<div class="exp-box">
+<h3>5000+</h3>
+<p>Clients</p>
+</div>
+<div class="exp-box">
+<h3>20+</h3>
+<p>Experts</p>
+</div>
 </div>
 </div>
 
-<!-- REVIEWS -->
+<!-- PROFESSIONAL REVIEWS -->
+<section class="reviews-section">
 <div class="container">
-<h2>Customer Reviews</h2>
-<div class="slider">
-<div class="slides" id="slides">
+<h2 class="glow-title">What Our Clients Say</h2>
+<div class="review-slider">
+<div class="review-track" id="reviewTrack">
 
-<div class="slide">
-<p>"Excellent service and friendly staff!"</p>
-<h4>- Arjun</h4>
+<div class="review-card">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
 </div>
-
-<div class="slide">
-<p>"Very professional and clean salon."</p>
-<h4>- Rahul</h4>
-</div>
-
-<div class="slide">
-<p>"Best grooming experience ever."</p>
-<h4>- Karthik</h4>
+<p>"Exceptional service from start to finish. The stylists are true artists who listen to your needs and deliver outstanding results."</p>
+<h4>- Arjun S.</h4>
 </div>
 
+<div class="review-card">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<p>"Professional, clean, and incredibly relaxing. My hair has never looked better. Highly recommend their treatments!"</p>
+<h4>- Rahul M.</h4>
+</div>
+
+<div class="review-card">
+<div class="stars">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+<p>"Best grooming experience I've ever had. The attention to detail and quality of service is unmatched."</p>
+<h4>- Karthik R.</h4>
+</div>
+
 </div>
 </div>
 </div>
+</section>
 
 <!-- FOOTER -->
 <footer>
-<h3 style="color:#d4af37;">Modern Saloon</h3>
+<h3 style="color:#d4af37; margin-bottom: 1rem;">Modern Saloon</h3>
 
 <div class="social-icons">
 <a href="#"><i class="fab fa-instagram"></i></a>
 <a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
 </div>
 
-<p>&copy; 2024 Modern Saloon. All rights reserved.</p>
+<p>&copy; 2026 Modern Saloon. All rights reserved.</p>
 </footer>
 
 <script>
-// MENU
+// MENU TOGGLE
 const toggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
@@ -377,7 +586,7 @@ toggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
 });
 
-// HEADER SCROLL
+// HEADER SCROLL EFFECT
 const header = document.getElementById("header");
 
 window.addEventListener("scroll", () => {
@@ -388,15 +597,17 @@ window.addEventListener("scroll", () => {
     }
 });
 
-// REVIEW SLIDER
-let index = 0;
-const slides = document.getElementById("slides");
-const total = slides.children.length;
+// PROFESSIONAL REVIEW SLIDER
+let reviewIndex = 0;
+const reviewTrack = document.getElementById("reviewTrack");
+const totalReviews = reviewTrack.children.length;
 
-setInterval(() => {
-    index = (index + 1) % total;
-    slides.style.transform = `translateX(-${index * 100}%)`;
-}, 3000);
+function nextReview() {
+    reviewIndex = (reviewIndex + 1) % totalReviews;
+    reviewTrack.style.transform = `translateX(-${reviewIndex * 100}%)`;
+}
+
+setInterval(nextReview, 5000);
 </script>
 
 </body>
